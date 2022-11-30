@@ -18,10 +18,10 @@ public class BasketPromotionsController : ControllerBase
         , IBasketProductsService basketProductsService)
     {
         if(basketPromotionsService == null)
-            throw new ArgumentNullException("Argument basketPromotionsService cannot be null");
+            throw new ArgumentNullException($"Argument {nameof(basketPromotionsService)} cannot be null");
 
         if(basketProductsService == null)
-            throw new ArgumentNullException("Argument basketProductsService cannot be null");
+            throw new ArgumentNullException($"Argument {nameof(basketProductsService)} cannot be null");
 
         _logger = logger;
         _basketPromotionsService = basketPromotionsService;
@@ -34,7 +34,7 @@ public class BasketPromotionsController : ControllerBase
         if (customerBasket == null)
             return BadRequest("The basket cannot be empty");
 
-        var productItemsMap = _basketProductsService.GetProductItemsByIdList(customerBasket.Basket.Select(x=>x.ProductId))
+        var productItemsMap = _basketProductsService.GetProductItemsById(customerBasket.Basket.Select(x=>x.ProductId))
             .ToDictionary(x=> x.Id, x=> x);
 
         var basketOrder = new BasketOrder(customerBasket.CustomerId, customerBasket.LoyaltyCard, customerBasket.TransactionDate);
@@ -46,7 +46,7 @@ public class BasketPromotionsController : ControllerBase
             basketOrder.AddItem(productItemsMap[item.ProductId], item.Quantity);
         }
         
-        var rt = _basketPromotionsService.CalculatePromotionsForBasket(basketOrder);
+        var rt = _basketPromotionsService.CalculateBasketPromotion(basketOrder);
 
        return Ok(
             new ApplicableBasketPromotion{

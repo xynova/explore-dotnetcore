@@ -10,10 +10,3 @@ public interface IOrderPoints {
 
     Int32 Points { get; }
 }
-
-public interface IOrderPointsPromotion : IOrderPoints{
-
-    DateOnly StartDate {get;}
-
-    DateOnly EndDate {get;}
-}

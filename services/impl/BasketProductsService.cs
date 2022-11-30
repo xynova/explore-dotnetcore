@@ -7,7 +7,7 @@ namespace Domain.Services.Promotions.Impl;
 public class BasketProductsService : IBasketProductsService
 {
 
-    public ProductItem[] GetProductItemsByIdList(IEnumerable<string> idList)
+    public ProductItem[] GetProductItemsById(IEnumerable<string> idList)
     {
         var uniqueIds = new HashSet<String> (idList ?? new String[0]);
 

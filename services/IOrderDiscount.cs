@@ -11,11 +11,5 @@ public interface IOrderDiscount {
     Double Amount { get; }
 }
 
-public interface IOrderDiscountPromotion : IOrderDiscount{
-
-    DateOnly StartDate {get;}
-
-    DateOnly EndDate {get;}
-}
 
 

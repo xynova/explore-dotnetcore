@@ -13,7 +13,7 @@ public class BasketPromotion {
 
     public BasketPromotion(BasketOrder basket, IOrderDiscount[] applicableDiscounts, IOrderPoints[] applicablePoints){
         if(basket == null)
-            throw new ArgumentNullException("basket cannot be null");
+            throw new ArgumentNullException($"Argument {nameof(basket)} cannot be null");
 
         _basket = basket;
         _applicableDiscounts = applicableDiscounts ?? new IOrderDiscount[0] ;

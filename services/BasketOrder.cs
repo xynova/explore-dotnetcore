@@ -17,7 +17,7 @@ public class BasketOrder {
         _transactionDate = transactionDate;
     }
 
-    public BasketOrdertEntry[] Items{
+    public BasketOrdertEntry[] Entry{
         get{ return this._items.Values.ToArray(); }
     }
     public String CustomerId {

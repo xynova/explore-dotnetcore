@@ -10,7 +10,7 @@ public class BasketOrdertEntry{
     public BasketOrdertEntry(ProductItem product, Int32 quantity){
 
         if (product == null)
-            throw new ArgumentNullException("product cannot be null");
+            throw new ArgumentNullException($"Argument {nameof(product)} cannot be null");
 
         _product = product;
 
