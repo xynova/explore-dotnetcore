@@ -1,4 +1,6 @@
-namespace services;
+using System;
+
+namespace Domain.Services.Promotions;
 
 public class BasketOrdertEntry{
 

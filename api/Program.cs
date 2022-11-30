@@ -1,3 +1,6 @@
+using Domain.Services.Promotions;
+using Domain.Services.Promotions.Impl;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +10,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+// Add a custom scoped service.
+builder.Services.AddScoped<IBasketPromotionsService, BasketPromotionsService>();
+builder.Services.AddScoped<IBasketProductsService, BasketProductsService>();
+
+builder.Services.AddDateOnlyTimeOnlyStringConverters();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

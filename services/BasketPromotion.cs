@@ -1,4 +1,7 @@
-namespace services;
+using System;
+using System.Linq;
+
+namespace Domain.Services.Promotions;
 
 public class BasketPromotion {
 
@@ -37,9 +40,7 @@ public class BasketPromotion {
     public Int32 GetEarnedPoints() {
         return _applicablePoints.Sum(x=> x.Points );
     }
-    // public Double GetNetTotalAmount() {
-    //     return _basket.Items.Sum(x => x.)
-    // }
+    
 
    
 }
